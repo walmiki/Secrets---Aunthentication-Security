@@ -10,10 +10,13 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb://localhost:27017/userDB", {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-});
+mongoose.connect(
+	"mongodb+srv://admin-sumit:Nov@2019@rockbuzz-wwjgt.mongodb.net/userDB",
+	{
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	}
+);
 
 const userSchema = new mongoose.Schema({
 	email: String,
@@ -68,7 +71,7 @@ app.post("/login", function (req, res) {
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-	port = 8000;
+	port = 3000;
 }
 
 app.listen(port, function (req, res) {
