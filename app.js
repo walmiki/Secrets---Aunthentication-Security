@@ -66,6 +66,11 @@ app.post("/login", function (req, res) {
 	});
 });
 
-app.listen(3000, function (req, res) {
+let port = process.env.PORT;
+if (port == null || port == "") {
+	port = 8000;
+}
+
+app.listen(port, function (req, res) {
 	console.log("Server has started successfully on port 3000");
 });
